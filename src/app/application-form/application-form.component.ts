@@ -10,10 +10,10 @@ import { Ptype } from '../modalProperty';
 export class ApplicationFormComponent implements OnInit {
   months = monthList;
   years = yearList;
+  formElement = {};
   yearSelected = {};
-  monthSelected: object = {};
   constructor() {
-   }
+  }
   ngOnInit() {
   }
   onMonthSelect(event) {
@@ -26,7 +26,7 @@ export class ApplicationFormComponent implements OnInit {
   }
   onClickSubmit($event) {
     console.log('$event - ', $event);
-    console.log('$event - ', this.monthSelected);
+    console.log('$event - ', this.formElement);
 
   }
 }

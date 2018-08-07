@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <!-- <form> -->
     <div class="row">
       <h4>Account</h4>
       <div class="input-group input-group-icon">
@@ -54,17 +54,17 @@
       </div>
       <div class="col-half">
         <div class="input-group input-group-icon">
-          <input type="text" placeholder="Card CVC"/>
+          <input type="text" [(ngModel)]="formElement.cardCVC" placeholder="Card CVC"/>
           <div class="input-icon"><i class="fa fa-user"></i></div>
         </div>
       </div>
       <div class="col-half">
         <div class="input-group">
-          <select [(ngModel)]="monthSelected" (change)="onMonthSelect($event)" >
+          <select [(ngModel)]="formElement.monthSelected" (change)="onMonthSelect($event)" >
             <option value="" selected>--</option>
             <option *ngFor="let month of months" (value)="month">{{month.name}}</option>
           </select>
-          <select (ngModel)="yearSelected" (change)="onYearSelect($event)">
+          <select [(ngModel)]="formElement.yearSelected" (change)="onYearSelect($event)">
             <option value="" selected>--</option>
             <option *ngFor="let year of years" (value)="year">{{year.name}}</option>
           </select>
@@ -74,7 +74,7 @@
     <div class="row">
       <h4>Terms and Conditions</h4>
       <div class="input-group">
-        <input type="checkbox" id="terms"/>
+        <input [(ngModel)]="formElement.termsConditions" type="checkbox" id="terms"/>
         <label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</label>
       </div>
     </div>
@@ -90,5 +90,5 @@
             </div>
       </div>
     </div>
-  </form>
+  <!-- </form> -->
 </div>
