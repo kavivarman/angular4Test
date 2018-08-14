@@ -3,15 +3,15 @@
     <div class="row">
       <h4>Account</h4>
       <div class="input-group input-group-icon">
-        <input type="text" required  maxlength="100" placeholder="Full Name"/>
+        <input type="text" [ngClass]="{ 'ng-invalid' : errorElement.fullName }" (ngModelChange)="errorElement.fullName = false;" maxlength="100" [(ngModel)]="formElement.fullName" placeholder="Full Name"/>
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
       <div class="input-group input-group-icon">
-        <input type="email" placeholder="Email Adress"/>
+        <input type="email" [(ngModel)]="formElement.email" [ngClass]="{ 'ng-invalid' : errorElement.email }" (ngModelChange)="errorElement.email = false;" placeholder="Email Adress"/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
       <div class="input-group input-group-icon">
-        <input type="password" placeholder="Password"/>
+        <input type="password" [ngClass]="{ 'ng-invalid' : errorElement.password }" (ngModelChange)="errorElement.password = false;" [(ngModel)]="formElement.password" type="password" placeholder="Password"/>
         <div class="input-icon"><i class="fa fa-key"></i></div>
       </div>
     </div>
@@ -20,52 +20,52 @@
         <h4>Date of Birth</h4>
         <div class="input-group">
           <div class="col-third">
-            <input type="text" placeholder="DD"/>
+            <input type="text" [ngClass]="{ 'ng-invalid' : errorElement.date }" (ngModelChange)="errorElement.date = false;" [(ngModel)]="formElement.date" placeholder="DD"/>
           </div>
           <div class="col-third">
-            <input type="text" placeholder="MM"/>
+            <input type="text" [ngClass]="{ 'ng-invalid' : errorElement.month }" (ngModelChange)="errorElement.month = false;" [(ngModel)]="formElement.month" placeholder="MM"/>
           </div>
           <div class="col-third">
-            <input type="text" placeholder="YYYY"/>
+            <input type="text" [ngClass]="{ 'ng-invalid' : errorElement.year }" (ngModelChange)="errorElement.year = false;" [(ngModel)]="formElement.year" placeholder="YYYY"/>
           </div>
         </div>
       </div>
       <div class="col-half">
         <h4>Gender</h4>
         <div class="input-group">
-          <input type="radio" name="gender" value="male" id="gender-male"/>
-          <label for="gender-male">Male</label>
-          <input type="radio" name="gender" value="female" id="gender-female"/>
-          <label for="gender-female">Female</label>
+          <input type="radio" name="gender" (ngModelChange)="errorElement.gender = false;" [(ngModel)]="formElement.gender" value="male" id="gender-male"/>
+          <label [ngClass]="{ 'ng-invalid' : errorElement.gender }"  for="gender-male">Male</label>
+          <input type="radio" (ngModelChange)="errorElement.gender = false;" name="gender" [(ngModel)]="formElement.gender" value="female" id="gender-female"/>
+          <label [ngClass]="{ 'ng-invalid' : errorElement.gender }" for="gender-female">Female</label>
         </div>
       </div>
     </div>
     <div class="row">
       <h4>Payment Details</h4>
       <div class="input-group">
-        <input type="radio" name="payment-method" value="card" id="payment-method-card" checked="true"/>
-        <label for="payment-method-card"><span><i class="fa fa-cc-visa"></i>Credit Card</span></label>
-        <input type="radio" name="payment-method" value="paypal" id="payment-method-paypal"/>
-        <label for="payment-method-paypal"> <span><i class="fa fa-cc-paypal"></i>Paypal</span></label>
+        <input type="radio" name="payment-method" (ngModelChange)="errorElement.paymentType = false;" [(ngModel)]="formElement.paymentType" value="card" id="payment-method-card" checked="true"/>
+        <label [ngClass]="{ 'ng-invalid' : errorElement.paymentType }" for="payment-method-card"><span><i class="fa fa-cc-visa"></i>Credit Card</span></label>
+        <input type="radio" name="payment-method" (ngModelChange)="errorElement.paymentType = false;" value="paypal" [(ngModel)]="formElement.paymentType" id="payment-method-paypal"/>
+        <label [ngClass]="{ 'ng-invalid' : errorElement.paymentType }" for="payment-method-paypal"> <span><i class="fa fa-cc-paypal"></i>Paypal</span></label>
       </div>
       <div class="input-group input-group-icon">
-        <input type="text" placeholder="Card Number"/>
+        <input [ngClass]="{ 'ng-invalid' : errorElement.cardNumber }" type="text" [(ngModel)]="formElement.cardNumber" (ngModelChange)="errorElement.cardNumber = false;" placeholder="Card Number"/>
         <div class="input-icon"><i class="fa fa-credit-card"></i></div>
       </div>
       <div class="col-half">
         <div class="input-group input-group-icon">
-          <input type="text" [(ngModel)]="formElement.cardCVC" placeholder="Card CVC"/>
+          <input type="text" [(ngModel)]="formElement.cardCVC" [ngClass]="{ 'ng-invalid' : errorElement.cardCVC }" (ngModelChange)="errorElement.cardCVC = false;" placeholder="Card CVC"/>
           <div class="input-icon"><i class="fa fa-user"></i></div>
         </div>
       </div>
       <div class="col-half">
         <div class="input-group">
-          <select [(ngModel)]="formElement.monthSelected" (change)="onMonthSelect($event)" >
-            <option value="" selected>--</option>
+          <select [(ngModel)]="formElement.monthSelected" placeholder="--" (change)="onMonthSelect($event)" [ngClass]="{ 'ng-invalid' : errorElement.monthSelected }" (ngModelChange)="errorElement.monthSelected = false;">
+            <option value="null" selected>--</option>
             <option *ngFor="let month of months" (value)="month">{{month.name}}</option>
           </select>
-          <select [(ngModel)]="formElement.yearSelected" (change)="onYearSelect($event)">
-            <option value="" selected>--</option>
+          <select [(ngModel)]="formElement.yearSelected" placeholder="--" (change)="onYearSelect($event)" [ngClass]="{ 'ng-invalid' : errorElement.yearSelected }" (ngModelChange)="errorElement.yearSelected = false;">
+            <option value="null">--</option>
             <option *ngFor="let year of years" (value)="year">{{year.name}}</option>
           </select>
         </div>
@@ -74,14 +74,14 @@
     <div class="row">
       <h4>Terms and Conditions</h4>
       <div class="input-group">
-        <input [(ngModel)]="formElement.termsConditions" type="checkbox" id="terms"/>
-        <label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</label>
+        <input [(ngModel)]="formElement.termsConditions" (ngModelChange)="errorElement.termsConditions = false;" type="checkbox" id="terms"/>
+        <label [ngClass]="{ 'ng-invalid' : errorElement.termsConditions }" for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</label>
       </div>
     </div>
     <div class="row">
       <div class="col-half">
           <div class="input-group">
-              <input type="button" value="Clear" title="click to clear the value" class="btn btn-cancel">
+              <input type="button" (click)=onClickClear($event); value="Clear" title="click to clear the value" class="btn btn-cancel">
             </div>
       </div>
       <div class="col-half">

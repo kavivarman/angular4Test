@@ -27,3 +27,22 @@ export const yearList: Ptype[] = [
     {value: 2028, name: '2028'},
     {value: 2029, name: '2029'},
     {value: 2030, name: '2030'}];
+    export class FormControles {
+        field: string;
+        errorMessage: string;
+    }
+    export const validationApplicationForm: FormControles[] = [
+        { field: 'fullName', errorMessage: 'Please enter your Full Name' },
+        { field: 'email', errorMessage: 'Please enter your email' },
+        { field: 'password', errorMessage: 'Please enter your password' },
+        { field: 'date', errorMessage: 'Please enter your date' },
+        { field: 'month', errorMessage: 'Please enter your month' },
+        { field: 'year', errorMessage: 'Please enter your year' },
+        { field: 'gender', errorMessage: 'Please select your gender' },
+        { field: 'paymentType', errorMessage: 'Please enter your Payment Details' },
+        { field: 'cardNumber', errorMessage: 'Please enter your card number' },
+        { field: 'cardCVC', errorMessage: 'Please enter your card CVC' },
+        { field: 'monthSelected', errorMessage: 'Please enter your expiry month' },
+        { field: 'yearSelected', errorMessage: 'Please enter your expiry year' },
+        { field: 'termsConditions', errorMessage: 'Please select terms and Conditions' }
+    ];

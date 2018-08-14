@@ -237,3 +237,6 @@ select option {
 .ng-invalid:not(form)  {
   border-left: 5px solid #e91511;
 }
+label.ng-invalid {
+  border-left: 5px solid #e91511 !important;
+}
