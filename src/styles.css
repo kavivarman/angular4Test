@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+a {
+    color: rgb(8, 8, 248);
+    font-family: helvetica;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: black;
+  }
+  
+  a:visited {
+    color: purple;
+  }
+
+  

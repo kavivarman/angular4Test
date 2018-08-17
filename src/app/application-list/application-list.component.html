@@ -1,0 +1,29 @@
+<section>
+  <h1>Fixed Table header</h1>
+  <div class="tbl-header">
+    <table class="table table-bordered" cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Date Of Birth</th>
+          <th>Gender</th>
+          <th>Payment Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of dataList" >
+          <td>{{ data.fullName }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.date }}/{{data.month}}/{{data.year}}</td>
+          <td>{{ data.gender }}</td>
+          <td>{{ data.paymentType }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="made-with-love">
+    Made withng
+    <i>♥</i> by
+  </div>
+</section>
